@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: RAW
+    database: LLM_ANALYTICS_DB
+    schema: RAW
+    tables:
+      - name: RAW_LLM_LOGS
+        columns:
+          - name: CHAT_ID
+            tests:
+              - unique
+              - not_null

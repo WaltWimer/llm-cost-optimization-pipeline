@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: fct_llm_generations
+    columns:
+      - name: chat_id
+        tests:
+          - unique
+          - not_null
+      - name: user_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_users')
+              field: user_key
+      - name: model_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_models')
+              field: model_key
+
+  # no nulls values            
